@@ -1,6 +1,5 @@
 package no.jlwcrews.catapp.cat;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +9,7 @@ public class CatService {
 
     private final CatRepo catRepo;
 
-    public CatService(CatRepo catRepo){
+    public CatService(CatRepo catRepo) {
         this.catRepo = catRepo;
     }
 
