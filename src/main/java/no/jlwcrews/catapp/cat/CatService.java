@@ -13,23 +13,23 @@ public class CatService {
         this.catRepo = catRepo;
     }
 
-    public Cat getCat(int id){
-        return catRepo.getCat(id);
+    public Cat getCat(long id){
+        return catRepo.findById(id).orElse(null);
     }
 
     public List<Cat> getCats(){
-        return catRepo.getCats();
+        return catRepo.findAll();
     }
 
     public Cat createCat(Cat cat){
-        return catRepo.addCat(cat);
+        return catRepo.save(cat);
     }
 
     public Cat updateCat(Cat cat){
-        return catRepo.updateCat(cat);
+        return catRepo.save(cat);
     }
 
-    public void deleteCat(int id){
-        catRepo.deleteCat(id);
+    public void deleteCat(long id){
+        catRepo.deleteById(id);
     }
 }

@@ -1,14 +1,10 @@
 services:
   db:
     image: postgres:18-alpine
-    container_name: postgres
+    container_name: catdb-container
     environment:
       - POSTGRES_USER=bob
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=catdb
     ports:
       - "5432:5432"
-  catapp:
-    image: catapp-1.0.0
-    ports:
-      - "8080:8080"

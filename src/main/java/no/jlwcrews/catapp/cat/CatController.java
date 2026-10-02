@@ -21,7 +21,7 @@ public class CatController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cat> getCat(@PathVariable int id){
+    public ResponseEntity<Cat> getCat(@PathVariable long id){
         return ResponseEntity.ok(catService.getCat(id));
     }
 
@@ -31,7 +31,7 @@ public class CatController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteCat(@PathVariable int id){
+    public ResponseEntity<String> deleteCat(@PathVariable long id){
         catService.deleteCat(id);
         return ResponseEntity.ok("Cat deleted");
     }
