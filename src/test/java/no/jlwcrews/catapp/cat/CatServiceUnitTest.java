@@ -21,9 +21,9 @@ public class CatServiceUnitTest {
         when(mockCatRepo.save(any())).thenReturn(fuzzyBoi);
 
         var result = catService.createCat(fuzzyBoi);
-        assert result.getAge() == 0;
-        assert result.getName().equals("Unknown");
-        assert result.getColor().equals("Tuxedo");
+        assert result.getCatAge() == 0;
+        assert result.getCatName().equals("Unknown");
+        assert result.getCatColor().equals("Tuxedo");
     }
 
     @Test
@@ -40,8 +40,8 @@ public class CatServiceUnitTest {
         var result = catService.getCats();
 
         assert result.size() == 2;
-        assert result.get(0).getName().equals("Noodle");
-        assert result.get(1).getColor().equals("Black");
+        assert result.get(0).getCatName().equals("Noodle");
+        assert result.get(1).getCatColor().equals("Black");
     }
 
     @Test

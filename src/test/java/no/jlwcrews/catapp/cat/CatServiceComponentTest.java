@@ -14,7 +14,7 @@ public class CatServiceComponentTest {
     void shouldCreateCat(){
         var result = catService.createCat(new Cat("BK", "Tuxedo", 6));
 
-        assert result.getName().equals("BK");
+        assert result.getCatName().equals("BK");
 
         var catList = catService.getCats();
         assert catList.size() == 1;

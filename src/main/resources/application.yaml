@@ -7,4 +7,4 @@ spring:
     password: 1234
   jpa:
     show-sql: true
-    generate-ddl: true
+    generate-ddl: false
