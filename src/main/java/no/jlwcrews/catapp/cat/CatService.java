@@ -1,5 +1,7 @@
 package no.jlwcrews.catapp.cat;
 
+import no.jlwcrews.catapp.owner.OwnerService;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,9 +10,11 @@ import java.util.List;
 public class CatService {
 
     private final CatRepo catRepo;
+    private final OwnerService ownerService;
 
-    public CatService(CatRepo catRepo) {
+    public CatService(CatRepo catRepo, OwnerService ownerService) {
         this.catRepo = catRepo;
+        this.ownerService = ownerService;
     }
 
     public Cat getCat(long id){
@@ -31,5 +35,12 @@ public class CatService {
 
     public void deleteCat(long id){
         catRepo.deleteById(id);
+    }
+
+    public Cat changeOwnership(OwnershipChangeRequest changeRequest) {
+        var cat = catRepo.findById(changeRequest.catId()).orElse(null);
+        var owner = ownerService.getOwner(changeRequest.ownerId());
+        cat.setOwner(owner);
+        return catRepo.save(cat);
     }
 }

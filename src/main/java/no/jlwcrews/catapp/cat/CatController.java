@@ -30,6 +30,11 @@ public class CatController {
         return ResponseEntity.ok(catService.createCat(cat));
     }
 
+    @PostMapping("/change")
+    public ResponseEntity<Cat> changeOwnership(@RequestBody OwnershipChangeRequest changeRequest){
+        return ResponseEntity.ok(catService.changeOwnership(changeRequest));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCat(@PathVariable long id){
         catService.deleteCat(id);

@@ -1,5 +1,6 @@
 package no.jlwcrews.catapp.cat;
 
+import no.jlwcrews.catapp.owner.OwnerService;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,7 +12,8 @@ import static org.mockito.Mockito.when;
 public class CatServiceUnitTest {
 
     private final CatRepo mockCatRepo = mock(CatRepo.class);
-    private final CatService catService = new CatService(mockCatRepo);
+    private final OwnerService mockOwnerService = mock(OwnerService.class);
+    private final CatService catService = new CatService(mockCatRepo, mockOwnerService);
 
     @Test
     void shouldCreateCat(){

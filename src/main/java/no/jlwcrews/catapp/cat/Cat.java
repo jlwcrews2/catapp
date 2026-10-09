@@ -60,6 +60,14 @@ public class Cat{
     public void setCatAge(int age) {
         this.catAge = age;
     }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
 }
 
 
