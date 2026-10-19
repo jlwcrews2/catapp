@@ -1,6 +1,5 @@
 package no.jlwcrews.catapp.owner;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +18,12 @@ public class OwnerController {
     @GetMapping
     public ResponseEntity<List<Owner>> getOwners(){
         return ResponseEntity.ok(ownerService.getOwners());
+    }
+
+    @GetMapping("/mincats/{minCats}")
+    public ResponseEntity<List<Owner>> moreThanMinCats(@PathVariable int minCats){
+        var owners = ownerService.getMoreThanXCats(minCats);
+        return ResponseEntity.ok(owners);
     }
 
     @GetMapping("/{id}")

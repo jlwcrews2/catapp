@@ -7,12 +7,14 @@ import java.util.List;
 @Service
 public class OwnerService {
 
-    private final OwnerRepo repo;
     private final OwnerRepo ownerRepo;
 
-    public OwnerService(OwnerRepo repo, OwnerRepo ownerRepo) {
-        this.repo = repo;
+    public OwnerService(OwnerRepo ownerRepo) {
         this.ownerRepo = ownerRepo;
+    }
+
+    public List<Owner> getMoreThanXCats(int minCats){
+        return ownerRepo.findOwnersWithMoreThanXCats(minCats);
     }
 
     public Owner getOwner(Long id){

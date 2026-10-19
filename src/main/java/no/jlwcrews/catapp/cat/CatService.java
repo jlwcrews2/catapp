@@ -1,7 +1,6 @@
 package no.jlwcrews.catapp.cat;
 
 import no.jlwcrews.catapp.owner.OwnerService;
-import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

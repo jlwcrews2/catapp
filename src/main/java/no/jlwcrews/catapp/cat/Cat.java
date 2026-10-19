@@ -29,6 +29,14 @@ public class Cat{
         this.catAge = catAge;
     }
 
+    public Cat(String catName, String catColor, int catAge, Owner owner) {
+        this.catName = catName;
+        this.catColor = catColor;
+        this.catAge = catAge;
+        this.owner = owner;
+    }
+
+
     public Long getCatId() {
         return catId;
     }
