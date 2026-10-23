@@ -3,6 +3,9 @@ package no.jlwcrews.catapp.cat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import no.jlwcrews.catapp.owner.Owner;
+import no.jlwcrews.catapp.playdate.Playdate;
+
+import java.util.List;
 
 @Entity
 public class Cat{
@@ -19,6 +22,9 @@ public class Cat{
     @JoinColumn(name = "owner_id")
     @JsonIgnoreProperties("cats")
     private Owner owner;
+
+    @ManyToMany(mappedBy = "playdateCats")
+    private List<Playdate> playdates;
 
     public Cat() {
     }
