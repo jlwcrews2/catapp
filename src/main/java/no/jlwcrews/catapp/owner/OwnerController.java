@@ -1,5 +1,6 @@
 package no.jlwcrews.catapp.owner;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +33,7 @@ public class OwnerController {
     }
 
     @PostMapping
-    public ResponseEntity<Owner> createOwner(@RequestBody Owner owner){
+    public ResponseEntity<Owner> createOwner(@Valid @RequestBody Owner owner){
         return ResponseEntity.ok(ownerService.createOwner(owner));
     }
 

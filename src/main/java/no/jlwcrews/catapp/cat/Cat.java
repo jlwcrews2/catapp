@@ -1,7 +1,10 @@
 package no.jlwcrews.catapp.cat;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import no.jlwcrews.catapp.owner.Owner;
 import no.jlwcrews.catapp.playdate.Playdate;
 
@@ -14,6 +17,9 @@ public class Cat{
     @GeneratedValue(generator = "catgen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "catgen", initialValue = 1, allocationSize = 1, sequenceName = "cat_seq")
     private Long catId;
+    @NotEmpty(message = "Cat name must not be empty")
+    @NotNull(message = "Cat name must not be null")
+    @JsonAlias("name")
     private String catName;
     private String catColor;
     private int catAge;

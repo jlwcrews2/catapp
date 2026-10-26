@@ -1,12 +1,17 @@
 package no.jlwcrews.catapp.cat;
 
+import no.jlwcrews.catapp.exception.CatNameStupidException;
 import no.jlwcrews.catapp.owner.OwnerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class CatService {
+
+    private Logger logger = LoggerFactory.getLogger(CatService.class);
 
     private final CatRepo catRepo;
     private final OwnerService ownerService;
@@ -25,6 +30,15 @@ public class CatService {
     }
 
     public Cat createCat(Cat cat){
+        try {
+            if (cat.getCatName().contains("P")) {
+                throw new CatNameStupidException("No, your cat name is stupid");
+            }
+        } catch (Exception e){
+            logger.error(e.getMessage());
+            throw e;
+        }
+
         return catRepo.save(cat);
     }
 

@@ -2,6 +2,7 @@ package no.jlwcrews.catapp.owner;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import no.jlwcrews.catapp.cat.Cat;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class Owner {
     private Long ownerId;
     private String ownerFirstName;
     private String ownerLastName;
+    @Email
     private String ownerEmail;
 
     @OneToMany(mappedBy = "owner")

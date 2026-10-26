@@ -1,5 +1,6 @@
 package no.jlwcrews.catapp.cat;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,7 @@ public class CatController {
     }
 
     @PostMapping
-    public ResponseEntity<Cat> createCat(@RequestBody Cat cat){
+    public ResponseEntity<Cat> createCat(@Valid @RequestBody Cat cat){
         return ResponseEntity.ok(catService.createCat(cat));
     }
 
